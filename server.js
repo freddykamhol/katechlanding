@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const { createServer } = require("http");
 const next = require("next");
 
@@ -19,4 +18,3 @@ app
     console.error(err);
     process.exit(1);
   });
-
