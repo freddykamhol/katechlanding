@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --background: #06070b;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+@keyframes auroraShift {
+  0% {
+    transform: translate3d(-6%, -6%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 8%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-6%, -6%, 0) scale(1);
+  }
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translate3d(-10px, 12px, 0);
+  }
+  50% {
+    transform: translate3d(12px, -10px, 0);
+  }
+  100% {
+    transform: translate3d(-10px, 12px, 0);
+  }
+}
+
+@keyframes shineSweep {
+  0% {
+    transform: translate3d(-60%, -40%, 0) rotate(10deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.35;
+  }
+  55% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate3d(60%, 40%, 0) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.55;
+    transform: translate3d(6px, -4px, 0);
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(10deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.55;
+  }
+  26% {
+    transform: translate3d(170vw, 28vh, 0) rotate(10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(170vw, 28vh, 0) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
