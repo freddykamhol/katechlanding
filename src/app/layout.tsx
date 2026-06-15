@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CookieNotice from "./components/cookie-notice";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s · Karam Azmy Technologies",
   },
   description:
-    "Perfektion im Aufbau: Die neue Website von Karam Azmy Technologies. Fokus: Engineering, Plattformen und Prozessoptimierung.",
+    "Karam Azmy Technologies entwickelt individuelle Software, optimiert Prozesse und erstellt Websites für Unternehmen.",
   metadataBase: new URL("https://katechnologies.de"),
   alternates: {
     canonical: "https://katechnologies.de",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <CookieNotice />
+      </body>
     </html>
   );
 }
