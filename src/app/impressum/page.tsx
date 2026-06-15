@@ -1,4 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Impressum",
+  description: "Impressum und Anbieterkennzeichnung von Karam Azmy Media, Inhaber Freddy Karam Azmy.",
+  alternates: {
+    canonical: "/impressum",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function ImpressumPage() {
   return (

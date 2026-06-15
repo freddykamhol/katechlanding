@@ -1,6 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 const updatedAt = "15.06.2026";
+
+export const metadata: Metadata = {
+  title: "Datenschutzerklärung",
+  description: "Datenschutzerklärung von Karam Azmy Media mit Informationen zu Hosting, Kontaktformular, SMTP-Versand und lokaler Speicherung.",
+  alternates: {
+    canonical: "/datenschutz",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function DatenschutzPage() {
   return (

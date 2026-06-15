@@ -1,4 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Cookie-Informationen",
+  description: "Informationen zu Cookies und lokaler Speicherung auf der Website von Karam Azmy Technologies.",
+  alternates: {
+    canonical: "/cookies",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 const storageItems = [
   {

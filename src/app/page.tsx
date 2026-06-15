@@ -82,8 +82,85 @@ const testimonials = [
   },
 ];
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://katechnologies.de/#organization",
+      name: "Karam Azmy Technologies",
+      legalName: "Karam Azmy Media",
+      url: "https://katechnologies.de/",
+      email: "info@katechnologies.de",
+      founder: {
+        "@type": "Person",
+        name: "Freddy Karam Azmy",
+      },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Neue Straße 3",
+        postalCode: "37603",
+        addressLocality: "Holzminden",
+        addressCountry: "DE",
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Deutschland",
+      },
+      knowsAbout: [
+        "Individualsoftware",
+        "Softwareentwicklung",
+        "Prozessoptimierung",
+        "Websites",
+        "Zeiterfassung",
+        "Vermietungssysteme",
+        "Schulsanitätsdienst-Management",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://katechnologies.de/#website",
+      url: "https://katechnologies.de/",
+      name: "Karam Azmy Technologies",
+      inLanguage: "de-DE",
+      publisher: {
+        "@id": "https://katechnologies.de/#organization",
+      },
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://katechnologies.de/#leistungen",
+      name: "Software, Websites und digitale Systeme",
+      itemListElement: products.map((product) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: product.name,
+          description: product.text,
+          provider: {
+            "@id": "https://katechnologies.de/#organization",
+          },
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://katechnologies.de/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Startseite",
+          item: "https://katechnologies.de/",
+        },
+      ],
+    },
+  ],
+};
+
 export default function Home() {
   return (
+    <>
     <main className="min-h-screen overflow-x-hidden scroll-smooth bg-[#f7f3ec] text-[#121614] md:h-screen md:overflow-y-auto md:overscroll-contain md:[scroll-snap-type:y_mandatory]">
       <header className="fixed left-1/2 top-3 z-50 w-[min(calc(100%-1rem),76rem)] -translate-x-1/2 sm:top-4 sm:w-[min(calc(100%-1.5rem),76rem)]">
         <input id="mobile-menu" type="checkbox" className="mobile-menu-toggle peer sr-only" />
@@ -417,5 +494,10 @@ export default function Home() {
         </footer>
       </section>
     </main>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+    </>
   );
 }
