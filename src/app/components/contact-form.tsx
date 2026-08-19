@@ -132,9 +132,12 @@ export default function ContactForm() {
           Danke, die Anfrage wurde versendet. Wir melden uns zeitnah zurück.
         </p>
       ) : status === "error" ? (
-        <p role="alert" className="text-sm leading-6 text-red-200">
-          {errorMessage}
-        </p>
+        <div role="alert" className="rounded-2xl border border-red-200/20 bg-red-200/10 p-4 text-sm leading-6 text-red-100">
+          <p>{errorMessage}</p>
+          <a className="mt-2 inline-flex font-semibold text-white underline underline-offset-4" href="mailto:info@katechnologies.de">
+            Alternativ direkt per E-Mail schreiben
+          </a>
+        </div>
       ) : (
         <p className="text-sm leading-6 text-white/58">
           Die Angaben werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.

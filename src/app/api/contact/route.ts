@@ -61,17 +61,23 @@ function getRequiredEnv(name: string) {
   return value;
 }
 
-function escapeText(value: string) {
-  return value.replace(/[<>]/g, "");
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    '"': "&quot;",
+  })[character] || character);
 }
 
 function buildMailContent(input: { name: string; email: string; phone: string; topic: string; message: string }) {
   const safe = {
-    name: escapeText(input.name),
-    email: escapeText(input.email),
-    phone: escapeText(input.phone || "nicht angegeben"),
-    topic: escapeText(input.topic || "Allgemeine Anfrage"),
-    message: escapeText(input.message),
+    name: escapeHtml(input.name),
+    email: escapeHtml(input.email),
+    phone: escapeHtml(input.phone || "nicht angegeben"),
+    topic: escapeHtml(input.topic || "Allgemeine Anfrage"),
+    message: escapeHtml(input.message),
   };
 
   const text = [
@@ -138,6 +144,10 @@ export async function POST(request: NextRequest) {
       host: getRequiredEnv("SMTP_HOST"),
       port: Number.isFinite(smtpPort) ? smtpPort : 587,
       secure: getBooleanEnv("SMTP_SECURE", false),
+      requireTLS: getBooleanEnv("SMTP_REQUIRE_TLS", true),
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 20_000,
       auth: {
         user: getRequiredEnv("SMTP_USER"),
         pass: getRequiredEnv("SMTP_PASS"),
@@ -155,6 +165,9 @@ export async function POST(request: NextRequest) {
       subject,
       text,
       html,
+      headers: {
+        "X-Entity-Ref-ID": `contact-${Date.now()}`,
+      },
     });
 
     return NextResponse.json({ ok: true });

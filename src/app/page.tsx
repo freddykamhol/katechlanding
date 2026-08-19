@@ -530,7 +530,7 @@ export default function Home() {
       </section>
 
       <section id="kontakt" className="slide-panel flex flex-col items-start bg-[#111815] px-5 py-24 text-white sm:px-8 sm:py-32 lg:px-10 lg:py-40">
-        <div className="slide-reveal mx-auto grid w-full max-w-7xl flex-1 gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+        <div className="mx-auto grid w-full max-w-7xl flex-1 gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#79d8bd]">Kontakt</p>
             <h2 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1] tracking-[-0.045em] sm:mt-5 sm:text-7xl">
@@ -545,7 +545,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur sm:rounded-[2rem] sm:p-6">
+          <div className="rounded-[1.5rem] border border-white/10 bg-[#1a211e] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.22)] sm:rounded-[2rem] sm:p-6">
             <p className="text-base leading-7 text-white/72 sm:text-lg sm:leading-8">
               Beschreiben Sie kurz Ihr Ziel. Sie erhalten eine ehrliche Ersteinschätzung, ob Webdesign,
               individuelle Software oder Prozessoptimierung den größten Nutzen bringt.
