@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Karam Azmy Technologies – Software, Websites und Prozessoptimierung";
+export const alt = "KA Technologies – Webdesign, Software und Prozessoptimierung";
 export const size = {
   width: 1200,
   height: 630,
@@ -70,7 +70,7 @@ export default function Image() {
               KA
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 31, fontWeight: 800 }}>Karam Azmy Technologies</div>
+              <div style={{ fontSize: 31, fontWeight: 800 }}>KA Technologies</div>
               <div style={{ marginTop: 6, fontSize: 23, color: "#287563" }}>Software-Entwicklung aus Holzminden</div>
             </div>
           </div>

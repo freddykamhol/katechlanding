@@ -3,28 +3,30 @@ import CookieNotice from "./components/cookie-notice";
 import "./globals.css";
 
 const siteUrl = "https://katechnologies.de";
-const siteTitle = "Karam Azmy Technologies | Software, Websites & Prozessoptimierung";
+const siteTitle = "KA Technologies | Webdesign, Software & Prozessoptimierung";
 const siteDescription =
-  "Individuelle Software, Websites und digitale Systeme für bessere Abläufe: SSDmanagement, MPcontrol, Vermietung, MoveOffice und Zeiterfassung.";
+  "KA Technologies entwickelt verkaufsstarke Websites, individuelle Software und effizientere digitale Prozesse für Unternehmen.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteTitle,
-    template: "%s · Karam Azmy Technologies",
+    template: "%s · KA Technologies",
   },
   description: siteDescription,
-  applicationName: "Karam Azmy Technologies",
+  applicationName: "KA Technologies",
   authors: [{ name: "Freddy Karam Azmy", url: siteUrl }],
-  creator: "Karam Azmy Technologies",
+  creator: "KA Technologies",
   publisher: "Karam Azmy Media",
-  category: "Softwareentwicklung",
+  category: "Webdesign und Softwareentwicklung",
   keywords: [
     "Softwareentwicklung Holzminden",
-    "Karam Azmy Technologies",
+    "KA Technologies",
     "Karam Azmy Media",
     "Prozessoptimierung Software",
     "Websites erstellen lassen",
+    "Webdesign Holzminden",
+    "Landingpage erstellen lassen",
     "SSDmanagement",
     "MPcontrol",
     "MoveOffice",
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: siteUrl,
-    siteName: "Karam Azmy Technologies",
+    siteName: "KA Technologies",
     title: siteTitle,
     description: siteDescription,
     images: [
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Karam Azmy Technologies – Software, Websites und Prozessoptimierung",
+        alt: "KA Technologies – Webdesign, Software und Prozessoptimierung",
       },
     ],
   },

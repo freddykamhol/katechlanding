@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Cookie-Informationen",
-  description: "Informationen zu Cookies und lokaler Speicherung auf der Website von Karam Azmy Technologies.",
+  description: "Informationen zu Cookies und lokaler Speicherung auf der Website von KA Technologies.",
   alternates: {
     canonical: "/cookies",
   },

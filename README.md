@@ -1,4 +1,4 @@
-# Karam Azmy Technologies Landingpage
+# KA Technologies Landingpage
 
 ## Kontaktformular per SMTP
 
@@ -11,7 +11,7 @@ SMTP_SECURE=false
 SMTP_USER=postfach@example.com
 SMTP_PASS=change-me
 CONTACT_MAIL_TO=info@katechnologies.de
-CONTACT_MAIL_FROM="Karam Azmy Technologies <postfach@example.com>"
+CONTACT_MAIL_FROM="KA Technologies <postfach@example.com>"
 ```
 
 Hinweise:

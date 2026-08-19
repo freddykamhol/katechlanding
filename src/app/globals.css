@@ -28,6 +28,38 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid #79d8bd;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 999px;
+  background: #111815;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
@@ -39,15 +71,7 @@ html {
 }
 
 .slide-panel {
-  scroll-snap-align: start;
   scroll-margin-top: 0;
-  scroll-snap-stop: normal;
-}
-
-@media (min-width: 768px) {
-  .slide-panel {
-    scroll-snap-stop: always;
-  }
 }
 
 .slide-reveal {
@@ -58,6 +82,33 @@ html {
 
 .slide-card {
   animation: cardLift 680ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] {
+  border-color: rgba(121, 216, 189, 0.65);
+  box-shadow: 0 20px 60px rgba(40, 54, 49, 0.1);
+}
+
+.faq-item[open] > p {
+  animation: faqReveal 240ms ease-out both;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .slide-card {
+    transition:
+      transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms ease,
+      box-shadow 280ms ease,
+      background-color 220ms ease;
+  }
+
+  .slide-card:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .mobile-menu-panel {
@@ -154,13 +205,20 @@ html {
   }
 }
 
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 767px) {
   html {
     scroll-padding-top: 4.75rem;
-  }
-
-  .slide-panel {
-    scroll-snap-align: none;
   }
 
   .slide-reveal {
@@ -272,10 +330,6 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .slide-panel {
-    scroll-snap-align: none;
   }
 
   .slide-reveal,

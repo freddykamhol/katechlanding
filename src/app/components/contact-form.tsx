@@ -43,7 +43,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4">
+    <form onSubmit={handleSubmit} className="grid gap-4" aria-label="Projektanfrage">
       <label className="hidden" aria-hidden="true">
         Firma
         <input name="company" tabIndex={-1} autoComplete="off" />
@@ -55,7 +55,7 @@ export default function ContactForm() {
             required
             name="name"
             autoComplete="name"
-            className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 focus:border-[#79d8bd]"
+            className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
             placeholder="Ihr Name"
           />
         </label>
@@ -66,7 +66,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             autoComplete="email"
-            className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 focus:border-[#79d8bd]"
+            className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
             placeholder="name@firma.de"
           />
         </label>
@@ -78,7 +78,7 @@ export default function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 focus:border-[#79d8bd]"
+            className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
             placeholder="Telefonnummer"
           />
         </label>
@@ -86,11 +86,12 @@ export default function ContactForm() {
           Thema
           <select
             name="topic"
-            className="rounded-2xl border border-white/10 bg-[#1b241f] px-4 py-3 text-white outline-none transition focus:border-[#79d8bd]"
-            defaultValue="Software / Prozessoptimierung"
+            className="rounded-2xl border border-white/10 bg-[#1b241f] px-4 py-3 text-white outline-none transition hover:border-white/20 focus:border-[#79d8bd]"
+            defaultValue="Webdesign"
           >
-            <option>Software / Prozessoptimierung</option>
-            <option>Website</option>
+            <option>Webdesign</option>
+            <option>Softwareentwicklung</option>
+            <option>Prozessoptimierung</option>
             <option>SSDmanagement</option>
             <option>MPcontrol</option>
             <option>Vermietungssystem</option>
@@ -105,8 +106,8 @@ export default function ContactForm() {
           required
           name="message"
           rows={5}
-          className="resize-none rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 focus:border-[#79d8bd]"
-          placeholder="Kurz beschreiben, was gelöst werden soll."
+          className="resize-none rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
+          placeholder="Was möchten Sie erreichen oder verbessern?"
         />
       </label>
       <label className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-sm leading-6 text-white/72">
@@ -122,16 +123,16 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex w-full items-center justify-center rounded-full bg-[#79d8bd] px-6 py-3 text-sm font-semibold text-[#07120f] transition hover:bg-[#9be5cf]"
+        className="inline-flex w-full items-center justify-center rounded-full bg-[#79d8bd] px-6 py-3.5 text-sm font-bold text-[#07120f] shadow-[0_16px_40px_rgba(121,216,189,0.16)] transition hover:-translate-y-0.5 hover:bg-[#9be5cf] disabled:cursor-wait disabled:opacity-65"
       >
-        {status === "sending" ? "Wird gesendet ..." : "Anfrage senden"}
+        {status === "sending" ? "Wird gesendet ..." : "Kostenlose Ersteinschätzung anfragen →"}
       </button>
       {status === "sent" ? (
-        <p className="text-sm leading-6 text-white/58">
+        <p role="status" aria-live="polite" className="text-sm leading-6 text-white/58">
           Danke, die Anfrage wurde versendet. Wir melden uns zeitnah zurück.
         </p>
       ) : status === "error" ? (
-        <p className="text-sm leading-6 text-red-200">
+        <p role="alert" className="text-sm leading-6 text-red-200">
           {errorMessage}
         </p>
       ) : (
