@@ -25,14 +25,13 @@ function isValidEmail(value: string) {
 }
 
 function getClientKey(request: NextRequest) {
-  return (
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip")?.trim() ||
-    "unknown"
-  );
+  return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip")?.trim() || null;
 }
 
-function isRateLimited(key: string) {
+function isRateLimited(key: string | null) {
+  // Ohne verlässliche Client-IP darf kein globales Limit alle Besucher sperren.
+  if (!key) return false;
+
   const now = Date.now();
   const current = rateLimitStore.get(key);
 
@@ -111,11 +110,6 @@ function buildMailContent(input: { name: string; email: string; phone: string; t
 
 export async function POST(request: NextRequest) {
   try {
-    const clientKey = getClientKey(request);
-    if (isRateLimited(clientKey)) {
-      return NextResponse.json({ message: "Zu viele Anfragen. Bitte später erneut versuchen." }, { status: 429 });
-    }
-
     const payload = (await request.json()) as ContactPayload;
     if (asString(payload.company)) {
       return NextResponse.json({ ok: true });
@@ -135,8 +129,25 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Bitte eine gültige E-Mail-Adresse angeben." }, { status: 400 });
     }
 
-    if (phone.length > 80 || topic.length > 120 || message.length < 10 || message.length > 4000) {
-      return NextResponse.json({ message: "Bitte die Angaben prüfen." }, { status: 400 });
+    if (phone.length > 80) {
+      return NextResponse.json({ message: "Die Telefonnummer ist zu lang." }, { status: 400 });
+    }
+
+    if (!topic || topic.length > 120) {
+      return NextResponse.json({ message: "Bitte ein gültiges Thema auswählen." }, { status: 400 });
+    }
+
+    if (message.length < 10) {
+      return NextResponse.json({ message: "Bitte beschreiben Sie Ihr Anliegen mit mindestens 10 Zeichen." }, { status: 400 });
+    }
+
+    if (message.length > 4000) {
+      return NextResponse.json({ message: "Die Nachricht darf höchstens 4.000 Zeichen enthalten." }, { status: 400 });
+    }
+
+    // Erst vollständig geprüfte Versandversuche zählen, nicht Tippfehler oder Validierungsfehler.
+    if (isRateLimited(getClientKey(request))) {
+      return NextResponse.json({ message: "Zu viele Anfragen. Bitte in einigen Minuten erneut versuchen." }, { status: 429 });
     }
 
     const smtpPort = Number.parseInt(process.env.SMTP_PORT || "587", 10);

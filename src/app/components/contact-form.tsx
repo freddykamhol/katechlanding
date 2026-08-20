@@ -54,6 +54,8 @@ export default function ContactForm() {
           <input
             required
             name="name"
+            minLength={2}
+            maxLength={120}
             autoComplete="name"
             className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
             placeholder="Ihr Name"
@@ -77,6 +79,7 @@ export default function ContactForm() {
           <input
             name="phone"
             type="tel"
+            maxLength={80}
             autoComplete="tel"
             className="rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
             placeholder="Telefonnummer"
@@ -105,6 +108,8 @@ export default function ContactForm() {
         <textarea
           required
           name="message"
+          minLength={10}
+          maxLength={4000}
           rows={5}
           className="resize-none rounded-2xl border border-white/10 bg-white/[0.08] px-4 py-3 text-white outline-none transition placeholder:text-white/38 hover:border-white/20 focus:border-[#79d8bd] focus:bg-white/[0.11]"
           placeholder="Was möchten Sie erreichen oder verbessern?"
