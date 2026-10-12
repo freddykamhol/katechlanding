@@ -3,9 +3,9 @@ import CookieNotice from "./components/cookie-notice";
 import "./globals.css";
 
 const siteUrl = "https://katechnologies.de";
-const siteTitle = "KA Technologies | Webdesign, Software & Prozessoptimierung";
+const siteTitle = "Webdesign & Individualsoftware im Weserbergland | KA Technologies";
 const siteDescription =
-  "KA Technologies entwickelt verkaufsstarke Websites, individuelle Software und effizientere digitale Prozesse für Unternehmen.";
+  "Webdesign und Individualsoftware aus Holzminden für das Weserbergland: Websites, Landingpages und Software für Unternehmen. Jetzt unverbindlich anfragen.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   publisher: "Karam Azmy Media",
   category: "Webdesign und Softwareentwicklung",
   keywords: [
+    "Webdesign Weserbergland",
+    "Individualsoftware Weserbergland",
+    "Webdesign Hameln",
+    "Webdesign Höxter",
     "Softwareentwicklung Holzminden",
     "KA Technologies",
     "Karam Azmy Media",
@@ -52,7 +56,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "KA Technologies – Webdesign, Software und Prozessoptimierung",
+        alt: "KA Technologies – Webdesign und Individualsoftware im Weserbergland",
       },
     ],
   },
@@ -76,8 +80,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "light",
-  themeColor: "#f7f3ec",
+  colorScheme: "dark light",
+  themeColor: "#0b0d0d",
 };
 
 export default function RootLayout({
