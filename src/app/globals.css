@@ -104,12 +104,14 @@ h1, h2, h3 { overflow-wrap: anywhere; }
 .section-lead { max-width: 510px; color: var(--muted); font-size: 16px; line-height: 1.7; }
 .system-section, .process-section, .faq-section, .contact-section { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 6vw; }
 .system-list { margin-top: 20px; }
-.system-row { display: grid; grid-template-columns: 30px minmax(0,1fr) 24px; gap: 12px; padding: 26px 0; border-top: 1px solid var(--line); }
+.system-row { display: grid; grid-template-columns: 30px 42px minmax(0,1fr) 24px; gap: 12px; padding: 26px 0; border-top: 1px solid var(--line); }
 .system-row:last-child { border-bottom: 1px solid var(--line); }
 .row-number, .card-index { color: var(--lime); font: 12px/1.5 monospace; }
 .system-row h3 { margin: 0; font-size: 28px; line-height: 1.2; letter-spacing: -.04em; }
 .system-row p { grid-column: 2; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .row-arrow { grid-column: 3; grid-row: 1; color: var(--lime); font-size: 24px; }
+.system-icon, .product-icon { width: 34px; height: 34px; color: var(--lime); stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.system-row .row-arrow { grid-column: 4; }.system-row p { grid-column: auto; }
 .references-section { background: #111511; }
 .references-section .section-heading { margin-bottom: 48px; }
 .reference-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
@@ -136,6 +138,7 @@ h1, h2, h3 { overflow-wrap: anywhere; }
 .split-heading { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); gap: 6vw; align-items: end; }
 .product-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 48px; }
 .product-card { position: relative; min-width: 0; min-height: 240px; padding: 28px; border: 1px solid #c3c5b9; border-radius: 8px; background: #e8e6de; transition: transform .2s,background .2s; }
+.product-icon { display: block; margin-top: 22px; color: #45601c; }.product-card h3 { margin-top: 28px; }
 .product-card:hover { transform: translateY(-4px); background: var(--lime); }
 .product-card .card-index { color: #45601c; }
 .product-card h3 { margin: 64px 0 10px; font-size: 27px; line-height: 1.1; letter-spacing: -.045em; }

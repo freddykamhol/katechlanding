@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   creator: "KA Technologies",
   publisher: "Karam Azmy Media",
   category: "Webdesign und Softwareentwicklung",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
   keywords: [
     "Webdesign Weserbergland",
     "Individualsoftware Weserbergland",
