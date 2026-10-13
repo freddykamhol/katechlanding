@@ -3,7 +3,7 @@ import CookieNotice from "./components/cookie-notice";
 import "./globals.css";
 
 const siteUrl = "https://katechnologies.de";
-const siteTitle = "Webdesign & Individualsoftware im Weserbergland | KA Technologies";
+const siteTitle = "Webdesign im Weserbergland | KA Technologies";
 const siteDescription =
   "Webdesign und Individualsoftware aus Holzminden für das Weserbergland: Websites, Landingpages und Software für Unternehmen. Jetzt unverbindlich anfragen.";
 
@@ -30,6 +30,12 @@ export const metadata: Metadata = {
     "Prozessoptimierung Software",
     "Websites erstellen lassen",
     "Webdesign Holzminden",
+    "Webdesign Hameln",
+    "Webdesign Höxter",
+    "Webdesign Bad Pyrmont",
+    "Webdesign Bodenwerder",
+    "Webdesign Rinteln",
+    "Webdesign Stadtoldendorf",
     "Landingpage erstellen lassen",
     "SSDmanagement",
     "MPcontrol",

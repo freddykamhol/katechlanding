@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 const links = [
   ["01", "Leistungen", "#systeme"],
-  ["02", "Produkte", "#produkte"],
-  ["03", "Arbeitsweise", "#prozess"],
-  ["04", "Weserbergland", "#weserbergland"],
+  ["02", "Referenzen", "#referenzen"],
+  ["03", "Produkte", "#produkte"],
+  ["04", "Arbeitsweise", "#prozess"],
+  ["05", "Weserbergland", "#weserbergland"],
 ] as const;
 
 export default function MobileMenu() {
